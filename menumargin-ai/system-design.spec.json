@@ -1,0 +1,20 @@
+{
+  "title": "MenuMargin AI: forecast-to-decision loop",
+  "direction": "LR",
+  "nodes": [
+    {"id": "operator", "label": "Restaurant operator"},
+    {"id": "web", "label": "Next.js\nDecision dashboard"},
+    {"id": "api", "label": "FastAPI\nDecision API"},
+    {"id": "scenario", "label": "Scenario layer\nConstraints"},
+    {"id": "forecast", "label": "Sybilion\nForecast boundary"},
+    {"id": "drivers", "label": "External drivers\nEurostat / HICP"}
+  ],
+  "edges": [
+    {"from": "operator", "to": "web", "label": "inspects and adjusts"},
+    {"from": "web", "to": "api", "label": "requests forecast view"},
+    {"from": "api", "to": "scenario", "label": "evaluates constraints"},
+    {"from": "scenario", "to": "forecast", "label": "uses forecast"},
+    {"from": "drivers", "to": "forecast", "label": "adds cost context"},
+    {"from": "scenario", "to": "api", "label": "returns recommendations"}
+  ]
+}

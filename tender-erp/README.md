@@ -20,6 +20,10 @@ flowchart LR
 
 ## System design
 
+The editable architecture source is [system-design.excalidraw](./system-design.excalidraw).
+
+![Tender ERP system design](./system-design-preview.svg)
+
 ```mermaid
 flowchart LR
   U[Manager / Head / Admin] --> F[React 18 + TypeScript frontend]

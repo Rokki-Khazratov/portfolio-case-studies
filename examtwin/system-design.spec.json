@@ -1,0 +1,24 @@
+{
+  "title": "ExamTwin: adaptive exam-preparation system",
+  "direction": "LR",
+  "nodes": [
+    {"id": "student", "label": "Student"},
+    {"id": "web", "label": "Next.js app\nExam UX"},
+    {"id": "api", "label": "FastAPI\nDomain API"},
+    {"id": "db", "label": "Postgres + pgvector\nExam records"},
+    {"id": "redis", "label": "Redis\nJob queue"},
+    {"id": "worker", "label": "Dramatiq worker\nAsync processing"},
+    {"id": "storage", "label": "Private storage\nContext files"},
+    {"id": "vertex", "label": "Vertex AI\nOptional"}
+  ],
+  "edges": [
+    {"from": "student", "to": "web", "label": "configures and takes mocks"},
+    {"from": "web", "to": "api", "label": "authenticated API calls"},
+    {"from": "api", "to": "db", "label": "persists domain state"},
+    {"from": "api", "to": "redis", "label": "queues background work"},
+    {"from": "redis", "to": "worker", "label": "jobs"},
+    {"from": "worker", "to": "storage", "label": "parses private artifacts"},
+    {"from": "worker", "to": "vertex", "label": "optional grounded AI"},
+    {"from": "worker", "to": "db", "label": "writes derived evidence"}
+  ]
+}

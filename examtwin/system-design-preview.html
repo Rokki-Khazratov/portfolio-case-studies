@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ExamTwin: adaptive exam-preparation system</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #1f1f1f; color: #f8f9fa; }
+    .card { margin: 32px auto; max-width: min(1120px, calc(100vw - 32px)); border: 1px solid #3d3d3d; border-radius: 8px; overflow: hidden; background: #2a2a2a; box-shadow: 0 18px 60px rgba(0,0,0,.28); }
+    header { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 16px; border-bottom: 1px solid #3d3d3d; }
+    .brand { display: flex; gap: 10px; align-items: center; font-weight: 650; white-space: nowrap; }
+    .mark { width: 18px; height: 18px; border-radius: 5px; background: #6965db; display: inline-grid; place-items: center; color: white; font-size: 13px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    a, button { border: 1px solid #d8d8d8; border-radius: 7px; background: #ffffff; color: #1e1e1e; padding: 8px 11px; text-decoration: none; font-size: 14px; cursor: pointer; }
+    button[disabled] { opacity: .68; cursor: wait; }
+    main { background: #ffffff; overflow: auto; }
+    .canvas { min-width: max-content; padding: 20px; }
+    .note { color: #adb5bd; font-size: 13px; padding: 0 16px 16px; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <header>
+      <div class="brand"><span class="mark">E</span><span>Excalidraw</span></div>
+      <div class="actions">
+        <a href="system-design.excalidraw" download>Download .excalidraw</a>
+        <button id="open-web" type="button">Open in Excalidraw</button>
+      </div>
+    </header>
+    <main><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="2760" height="380" viewBox="0 0 2760 380">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e1e1e"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.14"/></filter></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="80" y="64" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#1e1e1e">ExamTwin: adaptive exam-preparation system</text>
+<line x1="300" y1="174.0" x2="420" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="298.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="360.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">configures and takes mocks</text>
+<line x1="640" y1="174.0" x2="760" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="638.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="700.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">authenticated API calls</text>
+<line x1="980" y1="174.0" x2="1100" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="978.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1040.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">persists domain state</text>
+<line x1="980" y1="174.0" x2="1440" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1148.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1210.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">queues background work</text>
+<line x1="1660" y1="174.0" x2="1780" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1658.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1720.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">jobs</text>
+<line x1="2000" y1="174.0" x2="2120" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1998.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="2060.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">parses private artifacts</text>
+<line x1="2000" y1="174.0" x2="2460" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="2168.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="2230.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">optional grounded AI</text>
+<line x1="2000" y1="174.0" x2="1100" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1488.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1550.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">writes derived evidence</text>
+<rect x="80" y="130" width="220" height="88" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="190.0" y="181.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Student</text>
+<rect x="420" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="530.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Next.js app Exam</text>
+<text x="530.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">UX</text>
+<rect x="760" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="870.0" y="181.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">FastAPI Domain API</text>
+<rect x="1100" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1210.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Postgres +</text>
+<text x="1210.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">pgvector Exam</text>
+<text x="1210.0" y="214.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">records</text>
+<rect x="1440" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1550.0" y="181.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Redis Job queue</text>
+<rect x="1780" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1890.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Dramatiq worker</text>
+<text x="1890.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Async processing</text>
+<rect x="2120" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="2230.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Private storage</text>
+<text x="2230.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Context files</text>
+<rect x="2460" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="2570.0" y="181.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Vertex AI Optional</text>
+</svg></div></main>
+    <div class="note" id="note">Preview is local. Click Open in Excalidraw only when you want to upload an encrypted copy and edit it on the web.</div>
+  </section>
+  <script>
+    const SCENE = {"type": "excalidraw", "version": 2, "source": "https://excalidraw.com", "elements": [{"id": "text_c07fc6bac2db", "type": "text", "x": 80, "y": 48, "width": 520, "height": 105.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 234214034, "version": 1, "versionNonce": 1799229297, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 28, "fontFamily": 1, "text": "ExamTwin: adaptive\nexam-preparation\nsystem", "textAlign": "left", "verticalAlign": "middle", "containerId": null, "originalText": "ExamTwin: adaptive exam-preparation system", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_57f3aa1f1f67", "type": "rectangle", "x": 80, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "#e7f5ff", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 466448476, "version": 1, "versionNonce": 1366275054, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_dd808dcc59fd", "type": "text", "x": 96, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1693589076, "version": 1, "versionNonce": 1348011282, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Student", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Student", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_5d97ced0a84d", "type": "rectangle", "x": 420, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1396453442, "version": 1, "versionNonce": 779686032, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_de0b24945f15", "type": "text", "x": 436, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1566318999, "version": 1, "versionNonce": 1483517272, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Next.js app Exam UX", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Next.js app\nExam UX", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_e01d0a247054", "type": "rectangle", "x": 760, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 853027414, "version": 1, "versionNonce": 263331260, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_de24b646cce6", "type": "text", "x": 776, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1357676747, "version": 1, "versionNonce": 611462236, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "FastAPI Domain API", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "FastAPI\nDomain API", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_83e102b2734a", "type": "rectangle", "x": 1100, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1410087197, "version": 1, "versionNonce": 1499865132, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_2f1130dcc3ed", "type": "text", "x": 1116, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2099334664, "version": 1, "versionNonce": 1910004214, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Postgres + pgvector\nExam records", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Postgres + pgvector\nExam records", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_2eaad54566c2", "type": "rectangle", "x": 1440, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1046967456, "version": 1, "versionNonce": 2066287487, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_15d38f48eb0d", "type": "text", "x": 1456, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 928399101, "version": 1, "versionNonce": 231937637, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Redis Job queue", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Redis\nJob queue", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_5812b4c23951", "type": "rectangle", "x": 1780, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 738041263, "version": 1, "versionNonce": 1028539779, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_d4f9b71b8eba", "type": "text", "x": 1796, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2079867345, "version": 1, "versionNonce": 2013433929, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Dramatiq worker\nAsync processing", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Dramatiq worker\nAsync processing", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_2e948fc05c6e", "type": "rectangle", "x": 2120, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1402161748, "version": 1, "versionNonce": 742278171, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_656d74c4bba4", "type": "text", "x": 2136, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 562202494, "version": 1, "versionNonce": 1925368139, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Private storage\nContext files", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Private storage\nContext files", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_14eaaf16eaa9", "type": "rectangle", "x": 2460, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 659078355, "version": 1, "versionNonce": 1685715266, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_6ddc057df1b2", "type": "text", "x": 2476, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1578025681, "version": 1, "versionNonce": 234787732, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Vertex AI Optional", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Vertex AI\nOptional", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_5bc1f32576ff", "type": "arrow", "x": 300, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1739314862, "version": 1, "versionNonce": 530965552, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_7c63f38a27e4", "type": "text", "x": 290.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 263819218, "version": 1, "versionNonce": 1283786861, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "configures and takes\nmocks", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "configures and takes mocks", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_c69d54cc0967", "type": "arrow", "x": 640, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1788083253, "version": 1, "versionNonce": 579525246, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_bd352c2db774", "type": "text", "x": 630.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2106882420, "version": 1, "versionNonce": 1799387172, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "authenticated API\ncalls", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "authenticated API calls", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_fa1aee08bc38", "type": "arrow", "x": 980, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1394426753, "version": 1, "versionNonce": 1517330779, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_00d44e8b3f10", "type": "text", "x": 970.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1305277216, "version": 1, "versionNonce": 505659936, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "persists domain\nstate", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "persists domain state", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_6af3c67f9278", "type": "arrow", "x": 980, "y": 174.0, "width": 460, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1824175002, "version": 1, "versionNonce": 924115460, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [460, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_d73c7049ea2d", "type": "text", "x": 1140.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 914051345, "version": 1, "versionNonce": 792648040, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "queues background\nwork", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "queues background work", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_999fa2e98420", "type": "arrow", "x": 1660, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 423352432, "version": 1, "versionNonce": 188385918, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_bd41007b5c42", "type": "text", "x": 1650.0, "y": 144.0, "width": 170, "height": 22.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2117634983, "version": 1, "versionNonce": 2103472083, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "jobs", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "jobs", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_9d1c80d7b770", "type": "arrow", "x": 2000, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1299952814, "version": 1, "versionNonce": 576206042, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_025ab6392b8f", "type": "text", "x": 1990.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1640736035, "version": 1, "versionNonce": 1427704191, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "parses private\nartifacts", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "parses private artifacts", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_4bf2129e898f", "type": "arrow", "x": 2000, "y": 174.0, "width": 460, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 187252643, "version": 1, "versionNonce": 1913325190, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [460, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_e3b3b678963b", "type": "text", "x": 2160.0, "y": 144.0, "width": 170, "height": 22.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1295539482, "version": 1, "versionNonce": 1566686134, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "optional grounded AI", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "optional grounded AI", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_8e7760ee36e2", "type": "arrow", "x": 2000, "y": 174.0, "width": -900, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 794359823, "version": 1, "versionNonce": 1963942460, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [-900, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_d15d22606a81", "type": "text", "x": 1480.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1310122178, "version": 1, "versionNonce": 855395624, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "writes derived\nevidence", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "writes derived evidence", "autoResize": false, "lineHeight": 1.25}], "appState": {"gridSize": null, "viewBackgroundColor": "#ffffff"}, "files": {}};
+    const POST_URL = "https://json.excalidraw.com/api/v2/post/";
+    const EXCALIDRAW_URL = "https://excalidraw.com/";
+
+    function base64url(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let binary = "";
+      for (const byte of bytes) binary += String.fromCharCode(byte);
+      return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+    }
+
+    function concatBuffers(...buffers) {
+      const totalLength = 4 + buffers.length * 4 + buffers.reduce((sum, buffer) => sum + buffer.byteLength, 0);
+      const output = new ArrayBuffer(totalLength);
+      const view = new DataView(output);
+      const bytes = new Uint8Array(output);
+      let cursor = 0;
+      view.setUint32(cursor, 1);
+      cursor += 4;
+      for (const buffer of buffers) {
+        view.setUint32(cursor, buffer.byteLength);
+        cursor += 4;
+        bytes.set(new Uint8Array(buffer), cursor);
+        cursor += buffer.byteLength;
+      }
+      return output;
+    }
+
+    async function deflate(buffer) {
+      if (!("CompressionStream" in window)) {
+        throw new Error("Your browser does not support CompressionStream. Download the .excalidraw file and import it manually.");
+      }
+      const stream = new Blob([buffer]).stream().pipeThrough(new CompressionStream("deflate"));
+      return await new Response(stream).arrayBuffer();
+    }
+
+    async function createUrl(scene) {
+      const key = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const cryptoKey = await crypto.subtle.importKey("raw", key, "AES-GCM", false, ["encrypt"]);
+      const databaseScene = {
+        type: scene.type || "excalidraw",
+        version: scene.version || 2,
+        source: scene.source || "https://excalidraw.com",
+        elements: scene.elements || [],
+        appState: scene.appState || {},
+      };
+      const encoder = new TextEncoder();
+      const data = encoder.encode(JSON.stringify(databaseScene, null, 2)).buffer;
+      const encodingMetadata = encoder.encode(JSON.stringify({ version: 2, compression: "pako@1", encryption: "AES-GCM" })).buffer;
+      const contentsMetadata = encoder.encode("null").buffer;
+      const contents = concatBuffers(contentsMetadata, data);
+      const compressed = await deflate(contents);
+      const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv, tagLength: 128 }, cryptoKey, compressed);
+      const payload = concatBuffers(encodingMetadata, iv.buffer, encrypted);
+      const response = await fetch(POST_URL, { method: "POST", body: payload });
+      const result = await response.json();
+      if (!response.ok || !result.id) throw new Error(`Excalidraw upload failed: ${response.status}`);
+      return `${EXCALIDRAW_URL}#json=${result.id},${base64url(key)}`;
+    }
+
+    const button = document.getElementById("open-web");
+    if (button) {
+      button.addEventListener("click", async () => {
+        const note = document.getElementById("note");
+        try {
+          button.disabled = true;
+          button.textContent = "Generating link...";
+          const url = await createUrl(SCENE);
+          button.textContent = "Open in Excalidraw";
+          button.disabled = false;
+          note.textContent = "Web link generated in your browser. Opening Excalidraw now.";
+          window.open(url, "_blank", "noreferrer");
+        } catch (error) {
+          button.disabled = false;
+          button.textContent = "Open in Excalidraw";
+          note.textContent = error.message || String(error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

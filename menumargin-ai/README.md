@@ -20,6 +20,10 @@ flowchart LR
 
 ## System design
 
+The editable architecture source is [system-design.excalidraw](./system-design.excalidraw).
+
+![MenuMargin AI system design](./system-design-preview.svg)
+
 ```mermaid
 flowchart LR
   U[Restaurant operator] --> W[Next.js 16 + React 19 dashboard]

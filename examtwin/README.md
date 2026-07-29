@@ -24,6 +24,10 @@ flowchart LR
 
 ## System design
 
+The editable architecture source is [system-design.excalidraw](./system-design.excalidraw).
+
+![ExamTwin system design](./system-design-preview.svg)
+
 ```mermaid
 flowchart LR
   U[Student browser] --> W[Next.js 16 + React 19]

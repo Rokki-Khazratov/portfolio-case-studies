@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MenuMargin AI: forecast-to-decision loop</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #1f1f1f; color: #f8f9fa; }
+    .card { margin: 32px auto; max-width: min(1120px, calc(100vw - 32px)); border: 1px solid #3d3d3d; border-radius: 8px; overflow: hidden; background: #2a2a2a; box-shadow: 0 18px 60px rgba(0,0,0,.28); }
+    header { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 16px; border-bottom: 1px solid #3d3d3d; }
+    .brand { display: flex; gap: 10px; align-items: center; font-weight: 650; white-space: nowrap; }
+    .mark { width: 18px; height: 18px; border-radius: 5px; background: #6965db; display: inline-grid; place-items: center; color: white; font-size: 13px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    a, button { border: 1px solid #d8d8d8; border-radius: 7px; background: #ffffff; color: #1e1e1e; padding: 8px 11px; text-decoration: none; font-size: 14px; cursor: pointer; }
+    button[disabled] { opacity: .68; cursor: wait; }
+    main { background: #ffffff; overflow: auto; }
+    .canvas { min-width: max-content; padding: 20px; }
+    .note { color: #adb5bd; font-size: 13px; padding: 0 16px 16px; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <header>
+      <div class="brand"><span class="mark">E</span><span>Excalidraw</span></div>
+      <div class="actions">
+        <a href="system-design.excalidraw" download>Download .excalidraw</a>
+        <button id="open-web" type="button">Open in Excalidraw</button>
+      </div>
+    </header>
+    <main><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="2080" height="380" viewBox="0 0 2080 380">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e1e1e"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.14"/></filter></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="80" y="64" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#1e1e1e">MenuMargin AI: forecast-to-decision loop</text>
+<line x1="300" y1="174.0" x2="420" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="298.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="360.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">inspects and adjusts</text>
+<line x1="640" y1="174.0" x2="760" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="638.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="700.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">requests forecast view</text>
+<line x1="980" y1="174.0" x2="1100" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="978.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1040.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">evaluates constraints</text>
+<line x1="1320" y1="174.0" x2="1440" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1318.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1380.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">uses forecast</text>
+<line x1="2000" y1="174.0" x2="1440" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="1658.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1720.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">adds cost context</text>
+<line x1="1320" y1="174.0" x2="760" y2="174.0" stroke="#1e1e1e" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="978.0" y="138.0" width="124" height="28" rx="5" fill="#ffffff" stroke="#dee2e6"/>
+<text x="1040.0" y="158.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" fill="#495057">returns recommendations</text>
+<rect x="80" y="130" width="220" height="88" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="190.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Restaurant</text>
+<text x="190.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">operator</text>
+<rect x="420" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="530.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Next.js Decision</text>
+<text x="530.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">dashboard</text>
+<rect x="760" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="870.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">FastAPI Decision</text>
+<text x="870.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">API</text>
+<rect x="1100" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1210.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Scenario layer</text>
+<text x="1210.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Constraints</text>
+<rect x="1440" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1550.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Sybilion Forecast</text>
+<text x="1550.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">boundary</text>
+<rect x="1780" y="130" width="220" height="88" rx="12" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2.5" filter="url(#shadow)"/>
+<text x="1890.0" y="170.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">External drivers</text>
+<text x="1890.0" y="192.0" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#1e1e1e">Eurostat / HICP</text>
+</svg></div></main>
+    <div class="note" id="note">Preview is local. Click Open in Excalidraw only when you want to upload an encrypted copy and edit it on the web.</div>
+  </section>
+  <script>
+    const SCENE = {"type": "excalidraw", "version": 2, "source": "https://excalidraw.com", "elements": [{"id": "text_6841e146f4ae", "type": "text", "x": 80, "y": 48, "width": 520, "height": 105.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1880182971, "version": 1, "versionNonce": 442577930, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 28, "fontFamily": 1, "text": "MenuMargin AI:\nforecast-to-decision\nloop", "textAlign": "left", "verticalAlign": "middle", "containerId": null, "originalText": "MenuMargin AI: forecast-to-decision loop", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_5d75319f49e5", "type": "rectangle", "x": 80, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1971c2", "backgroundColor": "#e7f5ff", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2136189752, "version": 1, "versionNonce": 914303085, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_4cff56515441", "type": "text", "x": 96, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1214255218, "version": 1, "versionNonce": 1302031715, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Restaurant operator", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Restaurant operator", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_0c8409e18e34", "type": "rectangle", "x": 420, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1614731675, "version": 1, "versionNonce": 1728555823, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_f88d0968535e", "type": "text", "x": 436, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 270658380, "version": 1, "versionNonce": 109997713, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Next.js Decision\ndashboard", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Next.js\nDecision dashboard", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_f6d823fc3d72", "type": "rectangle", "x": 760, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1536731343, "version": 1, "versionNonce": 1651706980, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_147abbe0456c", "type": "text", "x": 776, "y": 154, "width": 188, "height": 25.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1447430803, "version": 1, "versionNonce": 1742217232, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "FastAPI Decision API", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "FastAPI\nDecision API", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_8f26ac10995b", "type": "rectangle", "x": 1100, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 342392529, "version": 1, "versionNonce": 680444096, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_84c57528b423", "type": "text", "x": 1116, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1912758698, "version": 1, "versionNonce": 479694938, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Scenario layer\nConstraints", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Scenario layer\nConstraints", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_f2d61e78ab94", "type": "rectangle", "x": 1440, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 313551508, "version": 1, "versionNonce": 1799794010, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_f2d61e7c3318", "type": "text", "x": 1456, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1862090712, "version": 1, "versionNonce": 1123238504, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "Sybilion Forecast\nboundary", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "Sybilion\nForecast boundary", "autoResize": false, "lineHeight": 1.25}, {"id": "rectangle_3208f79b59ff", "type": "rectangle", "x": 1780, "y": 130, "width": 220, "height": 88, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "#f8f9fa", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1515900851, "version": 1, "versionNonce": 1273572887, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false}, {"id": "text_0fe28129207e", "type": "text", "x": 1796, "y": 154, "width": 188, "height": 50.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2010948214, "version": 1, "versionNonce": 1619549313, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 20, "fontFamily": 1, "text": "External drivers\nEurostat / HICP", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "External drivers\nEurostat / HICP", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_042ebccf5458", "type": "arrow", "x": 300, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1854371665, "version": 1, "versionNonce": 115566197, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_a04f0579f331", "type": "text", "x": 290.0, "y": 144.0, "width": 170, "height": 22.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2138714005, "version": 1, "versionNonce": 905854758, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "inspects and adjusts", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "inspects and adjusts", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_aaff48be30e1", "type": "arrow", "x": 640, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1409880090, "version": 1, "versionNonce": 535958334, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_b947ada6a705", "type": "text", "x": 630.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 176001774, "version": 1, "versionNonce": 1807603580, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "requests forecast\nview", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "requests forecast view", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_96c0437c45a3", "type": "arrow", "x": 980, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 657961109, "version": 1, "versionNonce": 1339729784, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_fc8a6175d785", "type": "text", "x": 970.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1892448402, "version": 1, "versionNonce": 803300000, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "evaluates\nconstraints", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "evaluates constraints", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_81ba7d5d5e0e", "type": "arrow", "x": 1320, "y": 174.0, "width": 120, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1893582727, "version": 1, "versionNonce": 648837666, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [120, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_db6b17829b4c", "type": "text", "x": 1310.0, "y": 144.0, "width": 170, "height": 22.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1722190518, "version": 1, "versionNonce": 1420715389, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "uses forecast", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "uses forecast", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_b655838cb1ac", "type": "arrow", "x": 2000, "y": 174.0, "width": -560, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1057528065, "version": 1, "versionNonce": 1782170474, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [-560, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_1e3f8d01ad89", "type": "text", "x": 1650.0, "y": 144.0, "width": 170, "height": 22.5, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 1912304669, "version": 1, "versionNonce": 2094776836, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "adds cost context", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "adds cost context", "autoResize": false, "lineHeight": 1.25}, {"id": "arrow_83868341772a", "type": "arrow", "x": 1320, "y": 174.0, "width": -560, "height": 0.0, "angle": 0, "strokeColor": "#1e1e1e", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 773868979, "version": 1, "versionNonce": 493034912, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "points": [[0, 0], [-560, 0.0]], "lastCommittedPoint": null, "startBinding": null, "endBinding": null, "startArrowhead": null, "endArrowhead": "arrow"}, {"id": "text_d4217e77deb8", "type": "text", "x": 970.0, "y": 144.0, "width": 170, "height": 45.0, "angle": 0, "strokeColor": "#495057", "backgroundColor": "transparent", "fillStyle": "solid", "strokeWidth": 2, "strokeStyle": "solid", "roughness": 1, "opacity": 100, "groupIds": [], "frameId": null, "roundness": {"type": 3}, "seed": 2129214001, "version": 1, "versionNonce": 962266661, "isDeleted": false, "boundElements": null, "updated": 1, "link": null, "locked": false, "fontSize": 18, "fontFamily": 1, "text": "returns\nrecommendations", "textAlign": "center", "verticalAlign": "middle", "containerId": null, "originalText": "returns recommendations", "autoResize": false, "lineHeight": 1.25}], "appState": {"gridSize": null, "viewBackgroundColor": "#ffffff"}, "files": {}};
+    const POST_URL = "https://json.excalidraw.com/api/v2/post/";
+    const EXCALIDRAW_URL = "https://excalidraw.com/";
+
+    function base64url(buffer) {
+      const bytes = new Uint8Array(buffer);
+      let binary = "";
+      for (const byte of bytes) binary += String.fromCharCode(byte);
+      return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+    }
+
+    function concatBuffers(...buffers) {
+      const totalLength = 4 + buffers.length * 4 + buffers.reduce((sum, buffer) => sum + buffer.byteLength, 0);
+      const output = new ArrayBuffer(totalLength);
+      const view = new DataView(output);
+      const bytes = new Uint8Array(output);
+      let cursor = 0;
+      view.setUint32(cursor, 1);
+      cursor += 4;
+      for (const buffer of buffers) {
+        view.setUint32(cursor, buffer.byteLength);
+        cursor += 4;
+        bytes.set(new Uint8Array(buffer), cursor);
+        cursor += buffer.byteLength;
+      }
+      return output;
+    }
+
+    async function deflate(buffer) {
+      if (!("CompressionStream" in window)) {
+        throw new Error("Your browser does not support CompressionStream. Download the .excalidraw file and import it manually.");
+      }
+      const stream = new Blob([buffer]).stream().pipeThrough(new CompressionStream("deflate"));
+      return await new Response(stream).arrayBuffer();
+    }
+
+    async function createUrl(scene) {
+      const key = crypto.getRandomValues(new Uint8Array(16));
+      const iv = crypto.getRandomValues(new Uint8Array(12));
+      const cryptoKey = await crypto.subtle.importKey("raw", key, "AES-GCM", false, ["encrypt"]);
+      const databaseScene = {
+        type: scene.type || "excalidraw",
+        version: scene.version || 2,
+        source: scene.source || "https://excalidraw.com",
+        elements: scene.elements || [],
+        appState: scene.appState || {},
+      };
+      const encoder = new TextEncoder();
+      const data = encoder.encode(JSON.stringify(databaseScene, null, 2)).buffer;
+      const encodingMetadata = encoder.encode(JSON.stringify({ version: 2, compression: "pako@1", encryption: "AES-GCM" })).buffer;
+      const contentsMetadata = encoder.encode("null").buffer;
+      const contents = concatBuffers(contentsMetadata, data);
+      const compressed = await deflate(contents);
+      const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv, tagLength: 128 }, cryptoKey, compressed);
+      const payload = concatBuffers(encodingMetadata, iv.buffer, encrypted);
+      const response = await fetch(POST_URL, { method: "POST", body: payload });
+      const result = await response.json();
+      if (!response.ok || !result.id) throw new Error(`Excalidraw upload failed: ${response.status}`);
+      return `${EXCALIDRAW_URL}#json=${result.id},${base64url(key)}`;
+    }
+
+    const button = document.getElementById("open-web");
+    if (button) {
+      button.addEventListener("click", async () => {
+        const note = document.getElementById("note");
+        try {
+          button.disabled = true;
+          button.textContent = "Generating link...";
+          const url = await createUrl(SCENE);
+          button.textContent = "Open in Excalidraw";
+          button.disabled = false;
+          note.textContent = "Web link generated in your browser. Opening Excalidraw now.";
+          window.open(url, "_blank", "noreferrer");
+        } catch (error) {
+          button.disabled = false;
+          button.textContent = "Open in Excalidraw";
+          note.textContent = error.message || String(error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

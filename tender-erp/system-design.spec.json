@@ -1,0 +1,25 @@
+{
+  "title": "Tender ERP workflow",
+  "direction": "LR",
+  "nodes": [
+    {"id": "roles", "label": "Manager · Head\nAdmin"},
+    {"id": "web", "label": "React\nTypeScript UI"},
+    {"id": "api", "label": "Django REST\nWorkflow API"},
+    {"id": "rbac", "label": "RBAC\nRole permissions"},
+    {"id": "db", "label": "Deal database\nBusiness records"},
+    {"id": "audit", "label": "Audit log\nEvents"},
+    {"id": "tasks", "label": "Celery\nBackground jobs"},
+    {"id": "notify", "label": "Notifications\nTelegram"},
+    {"id": "reporting", "label": "Reports\nOperations"}
+  ],
+  "edges": [
+    {"from": "roles", "to": "web", "label": "role-aware navigation"},
+    {"from": "web", "to": "api", "label": "REST"},
+    {"from": "api", "to": "rbac", "label": "authorizes workflow actions"},
+    {"from": "api", "to": "db", "label": "reads and updates deals"},
+    {"from": "api", "to": "audit", "label": "records actions"},
+    {"from": "api", "to": "tasks", "label": "schedules work"},
+    {"from": "tasks", "to": "notify", "label": "sends notifications"},
+    {"from": "api", "to": "reporting", "label": "aggregates records"}
+  ]
+}
