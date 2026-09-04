@@ -8,6 +8,7 @@ This repository is deliberately a **presentation layer**, not a mirror of produc
 
 | Case study | Focus | Evidence currently included |
 | --- | --- | --- |
+| [School CRM](./school-crm/) | Production tuition accounting, approval workflows and financial oversight | Fresh local screenshots, two editable Excalidraw diagrams, 313 passing automated tests |
 | [ExamTwin](./examtwin/) | Adaptive exam-preparation platform | Local demo, product screenshots, documented API and AI pipeline |
 | [Tender ERP](./tender-erp/) | Role-aware tender and deal-management workflow | Frontend/backend source audit, workflow and API evidence; visual demo in progress |
 | [MenuMargin AI](./menumargin-ai/) | Margin-forecasting and scenario tool for restaurant menus | Local demo screenshots, backtest visual, frontend/backend source audit |
@@ -26,6 +27,7 @@ No production credentials, customer records, trade secrets or unverified impact 
 
 ```text
 .
+├── school-crm/    # production school finance CRM
 ├── examtwin/       # product and system case study
 ├── tender-erp/     # workflow-heavy ERP case study
 └── menumargin-ai/  # hackathon forecasting case study
