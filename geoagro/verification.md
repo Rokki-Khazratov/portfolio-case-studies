@@ -51,8 +51,8 @@ Map imagery depends on external tile services. The screenshot demonstrates the r
 - The production deployment itself was not accessed.
 - The date of the supplied database snapshot is not encoded in this case study.
 - Reported geographic rollout and employee usage come from the project author and LinkedIn experience; raw table counts come from the restored snapshot.
-- Redis, Celery and Firebase-related components appear in project history and dependencies, but this case only describes behavior verified in the inspected version.
+- The project author confirmed that Redis and Celery run on the production VPS, Firebase Cloud Messaging is used by the mobile application, and Telegram carries additional reports. Production infrastructure itself was not accessed during this review.
+- The system-design scenes combine inspected repository structure, restored snapshot counts and those explicit production confirmations. Logical Django domains shown in separate cards are responsibility boundaries inside one application, not separately deployed microservices.
 - Presidential directive numbers and their precise legal relationship to GeoAgro remain pending and are not asserted here.
-- System-design diagrams are outside this iteration by request.
 
 [← Back to the GeoAgro case study](./README.md)

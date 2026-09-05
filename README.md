@@ -8,7 +8,7 @@ This repository is deliberately a **presentation layer**, not a mirror of produc
 
 | Case study | Focus | Evidence currently included |
 | --- | --- | --- |
-| [GeoAgro](./geoagro/) | Nationwide orchard inventory, field evidence and three-level moderation | Restored data snapshot, 14 production-interface screenshots, backend/mobile source audit |
+| [GeoAgro](./geoagro/) | Nationwide orchard inventory, field evidence and three-level moderation | Restored data snapshot, 14 production-interface screenshots, 3 editable Excalidraw diagrams, backend/mobile source audit |
 | [School CRM](./school-crm/) | Production tuition accounting, approval workflows and financial oversight | Fresh local screenshots, two editable Excalidraw diagrams, 313 passing automated tests |
 | [ExamTwin](./examtwin/) | Adaptive exam-preparation platform | Local demo, product screenshots, documented API and AI pipeline |
 | [Tender ERP](./tender-erp/) | Role-aware tender and deal-management workflow | Six live-API demo screenshots, two editable Excalidraw diagrams, 25 passing targeted tests |

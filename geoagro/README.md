@@ -12,7 +12,7 @@ I joined the project as a backend engineer and later led the engineering work. M
 
 ![GeoAgro national operations dashboard](./assets/dashboard.png)
 
-[Product walkthrough](#product-walkthrough) · [Workflow](#from-field-observation-to-approved-record) · [Engineering](#technical-implementation) · [Lessons](#review-and-lessons) · [Verification](./verification.md)
+[Product walkthrough](#product-walkthrough) · [Workflow](#from-field-observation-to-approved-record) · [System design](#system-design) · [Engineering](#technical-implementation) · [Lessons](#review-and-lessons) · [Verification](./verification.md)
 
 ## Scale of the working dataset
 
@@ -146,18 +146,53 @@ Special field-user rules can restrict operations by distance from the user's rec
 | Statistics | Geographic and crop aggregations, filters, totals and Excel exports |
 | Accountability | Actor attribution, moderation logs, comments and detailed before/after history |
 | Operations | Administrative console, request logs, health/report endpoints and backup-oriented deployment |
-| Notifications | In-app notification records and client polling; mobile notification components are present in the codebase |
+| Notifications | In-app events, Firebase Cloud Messaging for the mobile application and Telegram management reports |
+
+## System design
+
+The architecture is documented through three connected views. Color is consistent across them: green marks field and approved data, cyan marks transport and data movement, violet marks governance, amber marks analytics and reporting, and red marks rejected or reversible transitions. Every source file is an editable Excalidraw scene rather than a flattened illustration.
+
+### 1. Production system landscape
+
+![GeoAgro production system landscape](./system-architecture-preview.svg)
+
+[Download the interactive HTML preview](./system-architecture-preview.html) · [Download the editable Excalidraw scene](./system-architecture.excalidraw)
+
+District employees collect GPS coordinates, polygons, agricultural attributes and photos in the Flutter application. The React portal provides moderation, administration, maps and statistics, while Telegram delivers additional management reports. On the production VPS, Nginx terminates and routes requests to Gunicorn and the Django REST API. PostgreSQL stores the operational dataset and audit history; a media volume holds plantation evidence; Redis supports caching and Celery brokering; Celery workers run asynchronous jobs and reports. The system integrates with map tiles and GeoJSON boundaries, Firebase Cloud Messaging and the Telegram API.
+
+The diagram deliberately keeps domain services inside one deployed Django application. Moderation, statistics, GIS, media, audit and reporting are logical responsibility boundaries in the inspected code, not claims that GeoAgro is deployed as microservices.
+
+### 2. Three-level moderation engine
+
+![GeoAgro three-level moderation workflow](./moderation-workflow-preview.svg)
+
+[Download the interactive HTML preview](./moderation-workflow-preview.html) · [Download the editable Excalidraw scene](./moderation-workflow.excalidraw)
+
+The workflow follows the record from district evidence capture through `pending`, regional review, `region_approved` and the republic-level `approved` state. Every decision writes audit context and can generate a notification. Only approved rows feed official maps, statistics and exports.
+
+Updates and deletions remain governed operations. Editing an approved plantation saves `prev_data` and restarts moderation; a rejection can restore the accepted version. An approved deletion request archives the record while preserving its history. These branches are central to the design because they prevent a later edit from bypassing the controls applied during initial registration.
+
+### 3. Domain and data model
+
+![GeoAgro domain and data model](./data-model-preview.svg)
+
+[Download the interactive HTML preview](./data-model-preview.html) · [Download the editable Excalidraw scene](./data-model.excalidraw)
+
+`Plantation` is the governed aggregate. It connects geography, the farmer or organization, ownership and lifecycle state with ordered coordinates and field-visit locations. Agronomy and infrastructure live in related records such as `FruitArea`, `Investment`, `Subsidy`, `Trellis` and `Reservoir`, supported by controlled fruit, variety and rootstock catalogues.
+
+Evidence and read models sit downstream from that write model. Images, comments and `HistoryLog` explain the record; notifications distribute state changes; approved-only statistics, Excel exports and Telegram reports turn the same source of truth into operational views. The restored snapshot makes the consequences tangible: **44,165** plantation rows connect to **627,689** polygon points, **98,678** image rows and **498,287** history events.
 
 ## Technical implementation
 
 | Layer | Technologies verified in the inspected project |
 | --- | --- |
 | Web | React 18, React Router, Ant Design, Leaflet, Chart.js, Create React App |
-| Mobile | Flutter, Dart, Dio, Riverpod, Google Maps integration |
+| Mobile | Flutter, Dart, Dio, Riverpod, Google Maps integration, Firebase Cloud Messaging |
 | API | Python, Django 4.2, Django REST Framework, JWT authentication |
-| Data | PostgreSQL; relational domain model plus JSON snapshots for controlled changes |
+| Data | PostgreSQL; relational domain model plus JSON snapshots for controlled changes; Redis cache and Celery broker |
 | Geospatial work | Latitude/longitude records, geopy/pyproj calculations, GeoJSON boundaries |
-| Delivery | Docker, Gunicorn, Nginx and PostgreSQL backup procedures |
+| Delivery | Production VPS, Docker, Gunicorn, Nginx, Celery workers and PostgreSQL backup procedures |
+| Integrations | Map tiles, GeoJSON boundaries, Firebase Cloud Messaging and Telegram reporting API |
 | API tooling | OpenAPI/Swagger documentation and Django administration |
 
 ### Permissions follow geography
@@ -205,7 +240,5 @@ The original dark React frontend, Django backend and a separate PostgreSQL clone
 No source code, credentials, personal phone numbers or detailed farmer identifiers are published in this repository. Screenshots are retained as historical product evidence; database counts are aggregate queries against the isolated snapshot.
 
 The repository's clean-database test run exposed a legacy integer-to-JSON migration cast. The migration was corrected in the isolated review copy with an explicit PostgreSQL `to_jsonb` conversion before targeted workflow tests were rerun. **26 of 27 checks passed**; the remaining test uses an object whose in-memory `total_area` is stale after a related-record recalculation, so its supposed no-change PATCH actually sends a different value. See [verification notes](./verification.md) for the evidence boundary.
-
-System-design diagrams are intentionally deferred until the architecture is reviewed in a dedicated follow-up.
 
 [← All portfolio case studies](../README.md)
