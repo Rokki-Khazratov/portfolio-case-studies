@@ -8,6 +8,7 @@ This repository is deliberately a **presentation layer**, not a mirror of produc
 
 | Case study | Focus | Evidence currently included |
 | --- | --- | --- |
+| [OfferFly](./offerfly/) | Evidence-first AI voice interviews for B2B recruiting | 2 B2B pilots, 10 local product screenshots, 4 editable Excalidraw diagrams, 199 passing checks |
 | [GeoAgro](./geoagro/) | Nationwide orchard inventory, field evidence and three-level moderation | Restored data snapshot, 14 production-interface screenshots, 3 editable Excalidraw diagrams, backend/mobile source audit |
 | [School CRM](./school-crm/) | Production tuition accounting, approval workflows and financial oversight | Fresh local screenshots, two editable Excalidraw diagrams, 313 passing automated tests |
 | [ExamTwin](./examtwin/) | Adaptive exam-preparation platform | Local demo, product screenshots, documented API and AI pipeline |
@@ -28,6 +29,7 @@ No production credentials, personal contact details, trade secrets or unverified
 
 ```text
 .
+├── offerfly/       # AI voice interviewing and evidence-first recruiting
 ├── geoagro/        # national orchard inventory and moderation platform
 ├── school-crm/     # production school finance CRM
 ├── examtwin/       # product and system case study
