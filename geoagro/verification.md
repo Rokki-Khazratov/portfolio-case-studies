@@ -42,7 +42,7 @@ The published case does not claim that this local migration correction was appli
 
 ## Screenshot provenance
 
-The original screenshots were full-size captures preserved with the supplied project context. In October 2026, the dashboard, regional statistics and moderation queue were captured again from the original dark frontend against a local historical database copy. The featured map, fruit statistics and district statistics were cropped from the original captures to give the product content more space. The map and moderation images obscure record names that could identify farms or people. These are screenshots of actual application states, not mockups; the image edits are limited to cropping and obscuring those names.
+The original screenshots were full-size captures preserved with the supplied project context. In October 2026, the dashboard, regional statistics and moderation queue were captured again from the original dark frontend against a local historical database copy. The featured republic map, district map, plantation card, fruit statistics and district statistics were cropped from the original captures to give the product content more space. The district map, plantation card and moderation images obscure names or identifiers that could identify farms or people; the plantation card also obscures financial values. These are screenshots of actual application states, not mockups; the image edits are limited to cropping and obscuring those values.
 
 The older, unedited captures remain in `assets/` as source evidence. Some of those historical screens contain organization or farm names visible in the application. Personal contact fields, phone numbers and detailed identifiers were excluded from the case text and featured screenshots.
 

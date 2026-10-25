@@ -58,9 +58,15 @@ The preserved screenshot shows one historical application state. Its visible tot
 
 Users can move from Uzbekistan to a region, district and individual plantation. The district view overlays registered polygons on satellite imagery and keeps the corresponding plantation list beside the map. Selecting an object opens its operational card.
 
+**Republic → district → plantation**
+
+![Republic map with Uzbekistan's regional boundaries](./assets/republic-map-focused.jpg)
+
 ![District satellite map with registered plantation contours and district totals](./assets/district-map-focused.jpg)
 
-*Bakhmal district: a satellite view links field polygons to the district's inventory. Record names are obscured in this portfolio image.*
+![Plantation detail card with area, land and investment fields; sensitive values obscured](./assets/plantation-detail-redacted.jpg)
+
+*National map → Bakhmal district inventory → a plantation's operational card. Farm names, account names, record identifiers and financial values are obscured in these portfolio images.*
 
 The backend stores each contour as ordered latitude/longitude points. This version does not depend on PostGIS: Python services handle distance and polygon calculations, while the React interface renders the result with Leaflet. The restored snapshot contains more than 627,000 coordinate points, so response shape and geographic scoping matter as much as the map component itself.
 
