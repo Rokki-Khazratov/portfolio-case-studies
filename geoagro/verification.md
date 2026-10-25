@@ -42,7 +42,9 @@ The published case does not claim that this local migration correction was appli
 
 ## Screenshot provenance
 
-The published screenshots are full-size captures preserved with the supplied project context. Their routes and interface version were rechecked against the running dark frontend and isolated database. Some views contain historical organization names visible in the application; personal contact fields, phone numbers and detailed identifiers were excluded from the selected screenshots and text.
+The original screenshots were full-size captures preserved with the supplied project context. In October 2026, the dashboard, regional statistics and moderation queue were captured again from the original dark frontend against a local historical database copy. The featured map, fruit statistics and district statistics were cropped from the original captures to give the product content more space. The map and moderation images obscure record names that could identify farms or people. These are screenshots of actual application states, not mockups; the image edits are limited to cropping and obscuring those names.
+
+The older, unedited captures remain in `assets/` as source evidence. Some of those historical screens contain organization or farm names visible in the application. Personal contact fields, phone numbers and detailed identifiers were excluded from the case text and featured screenshots.
 
 Map imagery depends on external tile services. The screenshot demonstrates the rendered district workflow, while local route verification confirms the application-side polygon and list behavior.
 

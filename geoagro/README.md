@@ -10,7 +10,7 @@ I joined the project as a backend engineer and later led the engineering work. M
 
 **Backend Engineer → Team Lead · October 2024–March 2026 · Agro-Industry Development Agency**
 
-![GeoAgro national operations dashboard](./assets/dashboard.png)
+![GeoAgro national operations dashboard: plantations, farmers, area and moderation](./assets/dashboard-focused.jpg)
 
 [Product walkthrough](#product-walkthrough) · [Workflow](#from-field-observation-to-approved-record) · [System design](#system-design) · [Engineering](#technical-implementation) · [Lessons](#review-and-lessons) · [Verification](./verification.md)
 
@@ -58,7 +58,9 @@ The preserved screenshot shows one historical application state. Its visible tot
 
 Users can move from Uzbekistan to a region, district and individual plantation. The district view overlays registered polygons on satellite imagery and keeps the corresponding plantation list beside the map. Selecting an object opens its operational card.
 
-![District satellite map with registered plantation contours](./assets/district-map.png)
+![District satellite map with registered plantation contours and district totals](./assets/district-map-focused.jpg)
+
+*Bakhmal district: a satellite view links field polygons to the district's inventory. Record names are obscured in this portfolio image.*
 
 The backend stores each contour as ordered latitude/longitude points. This version does not depend on PostGIS: Python services handle distance and polygon calculations, while the React interface renders the result with Leaflet. The restored snapshot contains more than 627,000 coordinate points, so response shape and geographic scoping matter as much as the map component itself.
 
@@ -66,48 +68,48 @@ The backend stores each contour as ordered latitude/longitude points. This versi
 
 A record brings together the farm, district, contour, total and planted areas, land and irrigation attributes, crops, varieties, planting years, investment, subsidies, infrastructure, photos and moderation state. Related history and comments explain how the current state was reached.
 
-![Approved plantation record with area, investment and crop composition](./assets/plantation-detail.png)
-
 Crop areas are modeled separately because a single contour can contain several fruits or varieties. Reference catalogues for fruit types, varieties and rootstocks make that information reportable across districts instead of leaving it in free-form text.
 
 ### Regional and crop statistics from the same records
 
 Statistics can be grouped by region, district and crop, filtered by planting or creation year, and exported to Excel. The backend calculates approved-only views and distinguishes total, planted, irrigated and unused areas. Farmer totals use unique identifiers rather than counting every plantation row as a separate farm.
 
-![Regional area statistics and export controls](./assets/region-statistics.png)
+![Regional area statistics and export controls](./assets/region-statistics-focused.jpg)
 
-![Fruit-level inventory statistics](./assets/fruit-statistics.png)
+![Fruit-level inventory statistics](./assets/fruit-statistics-focused.jpg)
 
 Drill-down pages preserve the geographic hierarchy and expose district totals inside a selected region.
 
-![District statistics inside a selected region](./assets/region-detail.png)
+![District statistics inside a selected region](./assets/region-detail-focused.jpg)
 
 ### Moderation is a workflow, not a boolean flag
 
 A newly submitted record enters the regional queue. A regional head can review records from that region and either advance or reject them. Republic-level users see submissions that have passed regional review and make the final decision. The queue exposes the operation type, current stage and relevant record context.
 
-![Moderation queue with stage and operation filters](./assets/moderation.png)
+![Moderation queue with stage and operation filters](./assets/moderation-focused.jpg)
+
+*The queue exposes geography, area, timestamps and review stage without requiring access to the underlying database. Record names are obscured here.*
 
 Editing an approved plantation creates another controlled review cycle. The backend stores the previous data before the edited version enters moderation. Approval accepts the new state; rejection restores the prior approved state. This prevents an ordinary edit from bypassing the control applied during initial registration.
 
 Deletion follows the same principle. A user submits a deletion request, moderators review it, and an accepted request archives the plantation rather than erasing its history.
 
-![Deletion requests as a separate moderated operation](./assets/deletion-requests.png)
-
 ### Administration and operational visibility
 
 The web administration area manages regions, districts, users, fruit catalogues, investments, subsidies and infrastructure reference data. It also exposes recent operations and moderation activity.
 
-![Application administration console](./assets/admin-console.png)
-
 Performance and log views help operators inspect request behavior and recent activity without direct database access.
-
-![Administrative performance view](./assets/performance.png)
 
 The Django administration and interactive API documentation remain available for controlled technical operations.
 
 <details>
-<summary>More screens: authentication, approved register, API documentation and Django administration</summary>
+<summary>More operational screens: deletion requests, administration, authentication and API</summary>
+
+![Deletion requests as a separate moderated operation](./assets/deletion-requests.png)
+
+![Application administration console](./assets/admin-console.png)
+
+![Administrative performance view](./assets/performance.png)
 
 ![GeoAgro authentication](./assets/login.png)
 
