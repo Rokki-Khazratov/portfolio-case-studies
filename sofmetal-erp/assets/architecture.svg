@@ -1,35 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 475" role="img" aria-labelledby="title">
-<title id="title">Sofmetal ERP logical architecture</title>
-<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#596579"/></marker></defs>
-<rect width="1100" height="475" rx="20" fill="#f5f7fa"/>
-<text x="42" y="54" font-family="system-ui,sans-serif" font-size="33" font-weight="700" fill="#192335">Sofmetal ERP · logical architecture</text>
-<text x="43" y="84" font-family="system-ui,sans-serif" font-size="17" fill="#536175">One web application and API, organized around the deal</text>
-<path d="M317 178L400 178" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="360.5" y="167.0" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#536175">HTTPS</text>
-<path d="M694 178L775 178" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="736.5" y="167.0" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#536175">ORM</text>
-<path d="M549 239L549 315" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="561.0" y="283.0" text-anchor="start" font-family="system-ui,sans-serif" font-size="13" fill="#536175">Tasks</text>
-<path d="M918 239L918 315" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="930.0" y="283.0" text-anchor="start" font-family="system-ui,sans-serif" font-size="13" fill="#536175">Files</text>
-<rect x="42" y="119" width="275" height="120" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
-<text x="59" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Department workspaces</text>
-<text x="59" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Sales · accounting · finance</text>
-<text x="59" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Warehouse · procurement · logistics</text>
-<rect x="404" y="119" width="290" height="120" rx="12" fill="#fff3f2" stroke="#a82c39" stroke-width="1.6"/>
-<text x="421" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Django REST API</text>
-<text x="421" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">JWT · field and role checks</text>
-<text x="421" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Deal transitions · Decimal totals</text>
-<rect x="779" y="119" width="279" height="120" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
-<text x="796" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Relational records</text>
-<text x="796" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Deals · inventory batches</text>
-<text x="796" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Clients · suppliers · audit history</text>
-<rect x="404" y="319" width="290" height="101" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
-<text x="421" y="353" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Celery task layer</text>
-<text x="421" y="381" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Redis broker configuration</text>
-<text x="421" y="403" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Email / Telegram paths in source</text>
-<rect x="779" y="319" width="279" height="101" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
-<text x="796" y="353" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Document attachments</text>
-<text x="796" y="381" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Django file fields</text>
-<text x="796" y="403" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Invoices · photos · authorizations</text>
-<text x="43" y="450" font-family="system-ui,sans-serif" font-size="14" fill="#536175">Runtime verified locally with SQLite. External delivery and production hosting were outside this review.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 764" role="img" aria-labelledby="sofmetal-architecture-title sofmetal-architecture-desc">
+<title id="sofmetal-architecture-title">Sofmetal ERP architecture</title>
+<desc id="sofmetal-architecture-desc">React workspaces call the Django REST API, which applies deal rules, stores records and files, and can queue notification tasks through Redis and Celery.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#536175"/></marker></defs>
+<rect width="1280" height="764" rx="12" fill="#f5f7fa"/>
+<text x="44" y="62" font-family="Georgia,serif" font-size="43" font-weight="700" fill="#192335">Sofmetal ERP architecture</text>
+<text x="46" y="101" font-family="system-ui,sans-serif" font-size="22" font-weight="400" fill="#536175">One deal shared across sales, fulfilment and finance</text>
+<path d="M44 116H1236 M44 513H476 M554 513H1236" stroke="#ccd4de" stroke-width="1"/>
+<path d="M308 280L420 280" fill="none" stroke="#536175" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="318" y="254" width="92" height="18" fill="#f5f7fa"/>
+<text x="324" y="267" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#536175">REST + JWT</text>
+<path d="M832 228L944 228" fill="none" stroke="#536175" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="870" y="202" width="36" height="18" fill="#f5f7fa"/>
+<text x="876" y="215" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#536175">ORM</text>
+<path d="M832 392L944 392" fill="none" stroke="#536175" stroke-width="2.2" marker-end="url(#arrow)"/>
+<rect x="854" y="366" width="68" height="18" fill="#f5f7fa"/>
+<text x="860" y="379" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#536175">UPLOADS</text>
+<path d="M508 436L508 588" fill="none" stroke="#536175" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="522" y="502" width="68" height="18" fill="#f5f7fa"/>
+<text x="528" y="515" font-family="system-ui,sans-serif" font-size="13" font-weight="400" fill="#536175">ENQUEUE</text>
+<path d="M596 636L676 636" fill="none" stroke="#536175" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<path d="M868 636L948 636" fill="none" stroke="#536175" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="44" y="180" width="264" height="224" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="64" y="217" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">React workspaces</text>
+<text x="64" y="246" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Sales and accounting</text>
+<text x="64" y="271" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Finance and closure</text>
+<text x="64" y="296" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Warehouse and procurement</text>
+<text x="64" y="321" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Logistics and delivery</text>
+<rect x="420" y="148" width="412" height="288" rx="8" fill="#fff2f1" stroke="#a82c39" stroke-width="1.6"/>
+<text x="440" y="185" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Django REST API</text>
+<text x="440" y="214" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">JWT authentication and role checks</text>
+<text x="440" y="247" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Deal stages and approval rules</text>
+<text x="440" y="280" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Line pricing, tax and exchange rate</text>
+<text x="440" y="313" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Separate invoice and delivery states</text>
+<text x="440" y="346" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Audit records on supported actions</text>
+<rect x="944" y="152" width="292" height="152" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="964" y="189" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Relational database</text>
+<text x="964" y="218" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Deals, clients and suppliers</text>
+<text x="964" y="243" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Purchase lines and stock batches</text>
+<text x="964" y="268" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Comments and approvals</text>
+<rect x="944" y="360" width="292" height="116" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="964" y="397" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Attachment storage</text>
+<text x="964" y="426" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Invoices and authorizations</text>
+<text x="964" y="451" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Product and delivery photos</text>
+<rect x="420" y="588" width="176" height="96" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="440" y="625" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Redis</text>
+<text x="440" y="654" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Task broker</text>
+<rect x="676" y="588" width="192" height="96" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="696" y="625" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Celery worker</text>
+<text x="696" y="654" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Background tasks</text>
+<rect x="948" y="588" width="288" height="96" rx="8" fill="#ffffff" stroke="#bfcad7" stroke-width="1.6"/>
+<text x="968" y="625" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#192335">Email and Telegram</text>
+<text x="968" y="654" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Notification code paths</text>
+<text x="44" y="553" font-family="system-ui,sans-serif" font-size="25" font-weight="700" fill="#192335">Background notifications</text>
+<text x="44" y="606" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Task wiring is in the source.</text>
+<text x="44" y="634" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Delivery was not tested locally.</text>
+<text x="44" y="728" font-family="system-ui,sans-serif" font-size="17" font-weight="400" fill="#536175">Solid: application requests and writes     ·     Dashed: background tasks     ·     Local database: SQLite</text>
+</svg>
