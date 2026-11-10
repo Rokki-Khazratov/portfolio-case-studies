@@ -10,6 +10,7 @@ This repository is deliberately a **presentation layer**, not a mirror of produc
 | --- | --- | --- |
 | [OfferFly](./offerfly/) | Evidence-first AI voice interviews for B2B recruiting | 2 B2B pilots, 10 local product screenshots, 4 editable Excalidraw diagrams, 199 passing checks |
 | [GeoAgro](./geoagro/) | Nationwide orchard inventory, field evidence and three-level moderation | Restored data snapshot, 14 production-interface screenshots, 3 editable Excalidraw diagrams, backend/mobile source audit |
+| [Sofmetal ERP](./sofmetal-erp/) | Deal approvals, metal inventory, procurement, logistics and financial close | Local product walkthrough, editable architecture diagram and tested role transitions |
 | [School CRM](./school-crm/) | Production tuition accounting, approval workflows and financial oversight | Fresh local screenshots, two editable Excalidraw diagrams, 313 passing automated tests |
 | [ExamTwin](./examtwin/) | Adaptive exam-preparation platform | Local demo, product screenshots, documented API and AI pipeline |
 | [Tender ERP](./tender-erp/) | Role-aware tender and deal-management workflow | Six live-API demo screenshots, two editable Excalidraw diagrams, 25 passing targeted tests |
@@ -31,6 +32,7 @@ No production credentials, personal contact details, trade secrets or unverified
 .
 ├── offerfly/       # AI voice interviewing and evidence-first recruiting
 ├── geoagro/        # national orchard inventory and moderation platform
+├── sofmetal-erp/   # metal distribution operations and deal approvals
 ├── school-crm/     # production school finance CRM
 ├── examtwin/       # product and system case study
 ├── tender-erp/     # workflow-heavy ERP case study

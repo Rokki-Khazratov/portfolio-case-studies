@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 475" role="img" aria-labelledby="title">
+<title id="title">Sofmetal ERP logical architecture</title>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5 0 9Z" fill="#596579"/></marker></defs>
+<rect width="1100" height="475" rx="20" fill="#f5f7fa"/>
+<text x="42" y="54" font-family="system-ui,sans-serif" font-size="33" font-weight="700" fill="#192335">Sofmetal ERP · logical architecture</text>
+<text x="43" y="84" font-family="system-ui,sans-serif" font-size="17" fill="#536175">One web application and API, organized around the deal</text>
+<path d="M317 178L400 178" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="360.5" y="167.0" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#536175">HTTPS</text>
+<path d="M694 178L775 178" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="736.5" y="167.0" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#536175">ORM</text>
+<path d="M549 239L549 315" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="561.0" y="283.0" text-anchor="start" font-family="system-ui,sans-serif" font-size="13" fill="#536175">Tasks</text>
+<path d="M918 239L918 315" stroke="#596579" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="930.0" y="283.0" text-anchor="start" font-family="system-ui,sans-serif" font-size="13" fill="#536175">Files</text>
+<rect x="42" y="119" width="275" height="120" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
+<text x="59" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Department workspaces</text>
+<text x="59" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Sales · accounting · finance</text>
+<text x="59" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Warehouse · procurement · logistics</text>
+<rect x="404" y="119" width="290" height="120" rx="12" fill="#fff3f2" stroke="#a82c39" stroke-width="1.6"/>
+<text x="421" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Django REST API</text>
+<text x="421" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">JWT · field and role checks</text>
+<text x="421" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Deal transitions · Decimal totals</text>
+<rect x="779" y="119" width="279" height="120" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
+<text x="796" y="153" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Relational records</text>
+<text x="796" y="181" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Deals · inventory batches</text>
+<text x="796" y="203" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Clients · suppliers · audit history</text>
+<rect x="404" y="319" width="290" height="101" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
+<text x="421" y="353" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Celery task layer</text>
+<text x="421" y="381" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Redis broker configuration</text>
+<text x="421" y="403" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Email / Telegram paths in source</text>
+<rect x="779" y="319" width="279" height="101" rx="12" fill="#ffffff" stroke="#c6ced9" stroke-width="1.6"/>
+<text x="796" y="353" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#192335">Document attachments</text>
+<text x="796" y="381" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Django file fields</text>
+<text x="796" y="403" font-family="system-ui,sans-serif" font-size="15" fill="#536175">Invoices · photos · authorizations</text>
+<text x="43" y="450" font-family="system-ui,sans-serif" font-size="14" fill="#536175">Runtime verified locally with SQLite. External delivery and production hosting were outside this review.</text></svg>
