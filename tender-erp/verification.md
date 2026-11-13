@@ -36,3 +36,7 @@ The audit view declared `AuditLogFilter` but had no `DjangoFilterBackend`; globa
 - Documents were inspected in source; client media was not exposed or used for screenshots.
 - Architecture diagrams distinguish configured background infrastructure from locally exercised components. The lifecycle diagram is illustrative rather than an exhaustive transition graph.
 - Reflection sections discuss the implementation and this review; they are not client endorsements.
+
+## November 2026 refresh
+
+The same backend and frontend revisions ran again against a clean SQLite database. The four targeted modules passed **25 tests**. The two new screenshots show an active auction and its queue in a separate fixture with three fictional deals; the earlier company, audit and reporting screens still show the larger September fixture. Telegram delivery was disabled.

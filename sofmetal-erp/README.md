@@ -2,7 +2,7 @@
 
 Custom ERP for a metal distributor and processor in Uzbekistan. I worked on the Django backend, designed the deal approval flow and connected it to the React screens used by each department.
 
-One order could include steel already in the warehouse, material a supplier still had to source, cutting and delivery. Before the ERP, the quotation, payment details and release documents could be in different spreadsheets, systems or chats. We gave everyone the same deal reference and a way to see who was waiting on whom.
+One order could include steel already in the warehouse, material a supplier still had to source, cutting and delivery. Before the ERP, the quotation, payment details and release documents could be in different spreadsheets, systems or chats. The ERP gives each order one deal reference and shows which department still needs to act.
 
 ![Deal register organized by workflow stage](assets/deals.jpg)
 
@@ -14,7 +14,7 @@ One order could include steel already in the warehouse, material a supplier stil
 
 The deal register is organised by what needs to happen next. Opening a deal shows the customer, salesperson, terms and line items, along with the payment and delivery statuses. A line keeps the price agreed with the customer even if the catalogue price changes later.
 
-![Mixed deal with commercial terms, workflow state and line items](assets/deal-detail.jpg)
+![Mixed deal with commercial terms, workflow state and line items](assets/deal-handoff.jpg)
 
 ### Warehouse and procurement
 
@@ -97,6 +97,6 @@ The quantity unit and the price unit are separate on a deal line: the same catal
 
 ## Demo
 
-The screenshots use fictional records in the original Russian interface. I ran the 2025 source locally with SQLite. The Celery and Redis configuration is in the source; I did not run external notifications or verify the production setup. The [verification notes](verification.md) cover the workflow test, the legacy test fixtures and what was outside the demo.
+The screenshots show fictional records in the original Russian interface. The deal register and the completed deal capture two points in the local walkthrough. I ran the 2025 source locally with SQLite. The Celery and Redis configuration is in the source; I did not run external notifications or verify the production setup. The [verification notes](verification.md) cover the workflow test, the legacy test fixtures and what was outside the demo.
 
 [All case studies](../)

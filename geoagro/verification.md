@@ -48,6 +48,8 @@ The older, unedited captures remain in `assets/` as source evidence. Some of tho
 
 Map imagery depends on external tile services. The screenshot demonstrates the rendered district workflow, while local route verification confirms the application-side polygon and list behavior.
 
+The Jizzakh region screenshot added in November 2026 comes from an archived project capture. It shows district boundaries before an orchard is selected, so no farm records are visible. The November source review did not rerun the historical web snapshot.
+
 ## Evidence limits
 
 - The production deployment itself was not accessed.

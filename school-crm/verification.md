@@ -62,3 +62,7 @@ The two fixes were also applied to the original local source checkout. Only pres
 - Retry and deduplication mechanisms do not establish exactly-once delivery to Telegram.
 - Production adoption numbers are developer-reported. No measured time savings, revenue lift or corruption-prevention outcome is claimed.
 - The architecture diagrams represent inspected code structure; production infrastructure details remain unspecified.
+
+## November 2026 refresh
+
+Revision `7cde306` ran against a new PostgreSQL database populated by the built-in demo setup. The dashboard, student list and debtor list were recaptured; payment and correction screenshots still come from the September run. The Vitest unit/component run passed **295 tests across 31 files**. The September PostgreSQL integration result above is from the earlier revision.

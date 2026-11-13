@@ -1,10 +1,12 @@
 # MenuMargin AI
 
-> A decision workspace that turns uncertain ingredient costs into concrete menu-price actions before margins are at risk.
+MenuMargin AI is a Zero One Hack_01 prototype for restaurant operators. It uses ingredient price forecasts to estimate a dish's margin over six months. An operator can compare the current menu price with an alternative before deciding whether to change it.
 
-MenuMargin AI was built during Zero One Hack_01 in the Sybilion forecasting track. It presents a restaurant operator with a six-month margin view, high-risk ingredients, scenario controls and actionable pricing recommendations.
+![Forecast dashboard with dish margins and scenario controls](./assets/overview-demo.jpg)
 
-## Decision flow
+## From ingredient prices to a dish margin
+
+The cost engine combines ingredient forecasts with the quantities in each recipe. It compares the estimated cost with the menu price and the operator's target margin. The dashboard shows which dishes are at risk and which ingredients drive the change. A scenario can limit a price increase or change assumptions such as supplier lead time and demand.
 
 ```mermaid
 flowchart LR
@@ -20,9 +22,11 @@ flowchart LR
 
 ## System design
 
-The editable architecture source is [system-design.excalidraw](./system-design.excalidraw).
+![MenuMargin AI forecast and scenario architecture](./system-design-preview.svg)
 
-![MenuMargin AI system design](./system-design-preview.svg)
+[Editable diagram](./system-design.excalidraw)
+
+The Next.js interface calls a FastAPI service. The backend uses pandas and NumPy to work with the ingredient series and recipe quantities. The source includes a Eurostat connector and a Sybilion adapter. When the external forecast API is unavailable, the demo can use packaged forecasts.
 
 ```mermaid
 flowchart LR
@@ -34,28 +38,14 @@ flowchart LR
   A --> W
 ```
 
-### What the interface makes visible
+## Forecast demo
 
-- dish-level current, expected and worst-case margin;
-- a target-margin threshold and risk classification;
-- ingredient-level forecasts and external drivers;
-- recommended price changes;
-- operator-controlled scenario constraints such as maximum increase, supplier lead time and demand shock;
-- a readable decision/reasoning log.
+![Forecast and backtest example from the project materials](./assets/backtest-demo.png)
 
-## Visual evidence
+![Recipe breakdown and margin by dish](./assets/dishes-demo.jpg)
 
-| Screen | What it demonstrates |
-| --- | --- |
-| ![Forecast dashboard](./assets/forecast-dashboard.png) | Dishes at risk, margin trajectories, price recommendation and scenario engine in one operational view |
-| ![Backtest demo](./assets/backtest-demo.png) | Forecast/backtest-oriented evidence from the local project materials |
+![Ingredient prices and forecast status](./assets/ingredients-demo.jpg)
 
-## Technical evidence observed locally
+The local API serves a four-dish sample menu. The demo analysis and scenario endpoints both returned results using cached forecasts. The backtest view demonstrates the comparison with a holdout period; the demo fallback can estimate accuracy from forecast bands. The sample results do not establish how accurately the prototype predicts a restaurant's costs.
 
-- Next.js 16.2 / React 19 / TypeScript / Recharts frontend.
-- FastAPI / Pydantic / pandas / NumPy / HTTP client backend.
-- Repository includes an `eurostat_connector.py` and the project dependencies include a Sybilion integration boundary.
-
-## Prototype boundary
-
-This is a hackathon prototype. Demo datasets, forecasts and recommendations must be presented as demonstration material unless a subsequent code audit proves a production data pipeline and validation method. The final contribution statement will be added after factual review with Shamshodbek.
+[All case studies](../)

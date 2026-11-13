@@ -31,3 +31,7 @@
 The owner reported production use separately. No adoption count, measured savings, live deployment topology or independent uptime figures are claimed here.
 
 [← Sofmetal ERP](./)
+
+## November 13 capture
+
+Restarted the isolated application and refreshed the mixed-deal screenshot from the synthetic database. The new screen shows the deal waiting for department confirmations, with its commercial, payment and delivery fields visible together.

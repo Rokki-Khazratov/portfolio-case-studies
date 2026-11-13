@@ -72,3 +72,7 @@ The current production design does not claim Kubernetes, Redis, a message queue,
 - Public diagrams simplify implementation detail to make boundaries and workflows readable. Cards represent logical responsibilities unless the text explicitly describes a separate deployment.
 
 [← Back to the OfferFly case study](./README.md)
+
+## November 2026 refresh
+
+The B2B landing ran locally at revision `f0f891b` and was recaptured. The recruiter and candidate screenshots above are from the September synthetic workspace. The core app at `e19f3f5` passed **199 tests across 33 files** against a new PostgreSQL schema created with Prisma schema push. The checked-in migration chain did not bootstrap that empty database: a migration referenced `InterviewSession` before it existed. The test result does not establish that a clean migration deploy works. Live interview providers were not exercised in this refresh.
